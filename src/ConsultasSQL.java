@@ -23,10 +23,10 @@ public class ConsultasSQL {
         Connection conex = DriverManager.getConnection("jdbc:mysql://localhost:3306/ejemplo?serverTimeZone=UTC","root","afuera");
 
         //Creamos una sentencia
-        Statement sentencia = conex.createStatement();
+        Statement sentencia = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         //Sentencia que te hace como una collecion que tu luego vas recorriendo
         //Statement sentencia2 = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-
+        //conex.createStat
         //Realizamos la consulta
         String sql = "SELECT * FROM dptos";
 
@@ -70,9 +70,9 @@ public class ConsultasSQL {
         //rs.last(); posicionamiento en el ultimo
         //rs.getRow(); devuelve el numero de filas donde estas
         //rs.previous();
-        //Mostramos la consulta
+        //rs.isAfterLast(); devuelve true si esta despues del ultimo
 
-        while(rs.next()) {
+        while(rs.previous()) {
             System.out.println(rs.getInt(1)+"  " + rs.getString(2)+"  "+ rs.getString(3)+ "  "+ rs.getFloat(4));
 
         }
