@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class ConsultasSQL {
+public class ConectorConsultaSQL {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // TODO Auto-generated method stub
@@ -17,6 +17,7 @@ public class ConsultasSQL {
 
         //Aqui cargamos el driver
         Class.forName("com.mysql.cj.jdbc.Driver");
+
         //Class.forName("com.mysql.jdbc.Driver");
 
         //Conectamos con la base de datos y nuestro usuario
@@ -46,31 +47,7 @@ public class ConsultasSQL {
         rs.deleteRow();
 
 
-        /*
-        //Metemos en rs la consulta realizada en la base de datos
-        ResultSet rs2 = sentencia2.executeQuery(sql);
-        //Nos posicionamos en el ultimo registro
-        rs2.last();
-        //Nos posicionamos en el primer registro
-        rs2.first();
-        //Nos posicionamos en el registro 3
-        rs2.absolute(3);
-        //Nos posicionamos en el registro 3 contando desde el final
-        rs2.relative(-3);
-        //Nos posicionamos en el registro 3 contando desde el final
-        rs2.relative(3);
-        //Nos posicionamos en el registro 3 contando desde el final
-        rs2.relative(3);
-         */
 
-        //para posicionarnos en el princpio utilizamos, pero se tiene que utilizar
-        //Statement sentencia2 = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        //rs.first();	posicionamineto en el primero
-        //rs.beforeFirst(); posicionamiento antes del primero
-        //rs.last(); posicionamiento en el ultimo
-        //rs.getRow(); devuelve el numero de filas donde estas
-        //rs.previous();
-        //rs.isAfterLast(); devuelve true si esta despues del ultimo
 
         while(rs.previous()) {
             System.out.println(rs.getInt(1)+"  " + rs.getString(2)+"  "+ rs.getString(3)+ "  "+ rs.getFloat(4));
@@ -112,10 +89,32 @@ public class ConsultasSQL {
         System.out.println(consulta);
 
 
-
-
-
-
     }
 
 }
+
+ /*
+        //Metemos en rs la consulta realizada en la base de datos
+        ResultSet rs2 = sentencia2.executeQuery(sql);
+        //Nos posicionamos en el ultimo registro
+        rs2.last();
+        //Nos posicionamos en el primer registro
+        rs2.first();
+        //Nos posicionamos en el registro 3
+        rs2.absolute(3);
+        //Nos posicionamos en el registro 3 contando desde el final
+        rs2.relative(-3);
+        //Nos posicionamos en el registro 3 contando desde el final
+        rs2.relative(3);
+        //Nos posicionamos en el registro 3 contando desde el final
+        rs2.relative(3);
+         */
+
+//para posicionarnos en el princpio utilizamos, pero se tiene que utilizar
+//Statement sentencia2 = conex.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+//rs.first();	posicionamineto en el primero
+//rs.beforeFirst(); posicionamiento antes del primero
+//rs.last(); posicionamiento en el ultimo
+//rs.getRow(); devuelve el numero de filas donde estas
+//rs.previous();
+//rs.isAfterLast(); devuelve true si esta despues del ultimo
