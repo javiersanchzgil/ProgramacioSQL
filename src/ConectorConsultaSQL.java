@@ -18,7 +18,6 @@ public class ConectorConsultaSQL {
         //Aqui cargamos el driver
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        //Class.forName("com.mysql.jdbc.Driver");
 
         //Conectamos con la base de datos y nuestro usuario
         Connection conex = DriverManager.getConnection("jdbc:mysql://localhost:3306/ejemplo?serverTimeZone=UTC","root","afuera");
@@ -45,8 +44,6 @@ public class ConectorConsultaSQL {
         //Borrar ultima fila
         rs.last();
         rs.deleteRow();
-
-
 
 
         while(rs.previous()) {
